@@ -13,7 +13,7 @@ CREATE TABLE category (
     title TEXT NOT NULL ,
     description TEXT ,
     user_id TEXT NOT NULL ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id) ,
     created_at TIMESTAMPTZ NOT NULL ,
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ
@@ -29,7 +29,7 @@ CREATE TABLE task (
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     user_id TEXT NOT NULL ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE credential (
@@ -40,7 +40,7 @@ CREATE TABLE credential (
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     user_id TEXT NOT NULL ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id)
 
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE passHash (
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     user_id TEXT NOT NULL ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id)
 
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE refreshToken (
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     user_id TEXT NOT NULL ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id)
 
 );
 
@@ -89,19 +89,19 @@ CREATE TABLE rolesPermissions (
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     role_id VARCHAR(50) NOT NULL ,
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(slug) ,
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(slug) ,
     permission_id VARCHAR(50) NOT NULL ,
-    CONSTRAINT fk_permission FOREIGN KEY (permission_id) REFERENCES permissions(slug)
+    CONSTRAINT fk_permission FOREIGN KEY (permission_id) REFERENCES permission(slug)
 );
 
-CREATE TABLE userRoles (
+CREATE TABLE userRole (
     created_at TIMESTAMPTZ NOT NULL ,
     updated_at TIMESTAMPTZ NOT NULL ,
     deleted_at TIMESTAMPTZ ,
     user_id VARCHAR(50) NOT NULL ,
     role_id VARCHAR(20) NOT NULL ,
     PRIMARY KEY (user_id, role_id) ,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ,
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(slug)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id) ,
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(slug)
 
 );

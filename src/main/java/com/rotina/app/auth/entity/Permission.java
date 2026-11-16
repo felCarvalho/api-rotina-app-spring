@@ -11,6 +11,7 @@ public class Permission {
 
     private String name;
 
+    @Id
     private String slug;
 
     @Column(name = "created_at")

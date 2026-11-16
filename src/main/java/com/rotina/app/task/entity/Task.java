@@ -3,7 +3,7 @@ package com.rotina.app.task.entity;
 import com.rotina.app.category.entity.Category;
 import com.rotina.app.shared.Enum.EnumStatusTask;
 import com.rotina.app.shared.baseEntity.BaseEntity;
-import com.rotina.app.user.entity.User;
+import com.rotina.app.user.entity.Users;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,7 +17,7 @@ public class Task extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -47,12 +47,12 @@ public class Task extends BaseEntity {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 
     public Category getCategory() {

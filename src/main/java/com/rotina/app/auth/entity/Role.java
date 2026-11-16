@@ -6,12 +6,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 public class Role {
 
     private String name;
 
+    @Id
     private String slug;
 
     @Column(name = "created_at")
@@ -24,7 +26,7 @@ public class Role {
     private Instant deletedAt;
 
     @OneToMany(mappedBy = "role")
-    private RolePermission rolesPermissions;
+    private List<RolePermission> rolesPermissions;
 
     public String getName() {
         return name;

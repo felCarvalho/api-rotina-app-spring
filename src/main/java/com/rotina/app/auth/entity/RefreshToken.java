@@ -1,6 +1,6 @@
 package com.rotina.app.auth.entity;
 
-import com.rotina.app.user.entity.User;
+import com.rotina.app.user.entity.Users;
 import jakarta.persistence.*;
 import com.rotina.app.shared.Enum.EnumStatus;
 import com.rotina.app.shared.baseEntity.BaseEntity;
@@ -11,7 +11,7 @@ public class RefreshToken extends BaseEntity {
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     private String refreshHash;
 

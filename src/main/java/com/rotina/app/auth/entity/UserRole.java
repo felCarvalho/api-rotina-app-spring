@@ -1,7 +1,7 @@
 package com.rotina.app.auth.entity;
 
 import com.rotina.app.shared.baseEntity.BaseEntity;
-import com.rotina.app.user.entity.User;
+import com.rotina.app.user.entity.Users;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -13,7 +13,7 @@ public class UserRole extends BaseEntity {
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     @Id
     @ManyToOne

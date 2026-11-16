@@ -5,6 +5,8 @@ import com.rotina.app.shared.baseEntity.BaseEntity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import java.util.List;
+
 @Entity
 public class RolePermission extends BaseEntity {
 

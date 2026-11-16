@@ -1,5 +1,5 @@
 
-CREATE TABLE users (
+CREATE TABLE user (
     id VARCHAR(50) PRIMARY KEY ,
     name TEXT NOT NULL ,
     created_at TIMESTAMPTZ NOT NULL ,
@@ -20,7 +20,7 @@ CREATE TABLE category (
 
 );
 
-CREATE TABLE tasks (
+CREATE TABLE task (
     id VARCHAR(50) PRIMARY KEY ,
     title TEXT NOT NULL ,
     description TEXT ,
@@ -32,7 +32,7 @@ CREATE TABLE tasks (
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-CREATE TABLE credentials (
+CREATE TABLE credential (
     id VARCHAR(50) PRIMARY KEY ,
     identifier TEXT NOT NULL ,
     provider TEXT NOT NULL ,
@@ -54,7 +54,7 @@ CREATE TABLE passHash (
 
 );
 
-CREATE TABLE permissions (
+CREATE TABLE permission (
     slug VARCHAR(50) PRIMARY KEY ,
     name VARCHAR(50) NOT NULL ,
     created_at TIMESTAMPTZ NOT NULL ,
@@ -63,7 +63,7 @@ CREATE TABLE permissions (
 
 );
 
-CREATE TABLE roles (
+CREATE TABLE role (
     slug VARCHAR(50) PRIMARY KEY ,
     name VARCHAR(50) NOT NULL ,
     created_at TIMESTAMPTZ NOT NULL ,

@@ -11,7 +11,7 @@ import com.rotina.app.shared.baseEntity.BaseEntity;
 public class PassHash extends BaseEntity  {
 
     @Id
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 

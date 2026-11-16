@@ -2,13 +2,15 @@ package com.rotina.app.auth.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.time.Instant;
 
 @Entity
-public class Roles {
+public class Permission {
 
     private String name;
+
     private String slug;
 
     @Column(name = "created_at")
@@ -59,4 +61,5 @@ public class Roles {
     public void setDeletedAt(Instant deletedAt) {
         this.deletedAt = deletedAt;
     }
+
 }

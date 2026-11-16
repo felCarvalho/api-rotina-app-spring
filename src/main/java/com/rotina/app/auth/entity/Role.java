@@ -2,12 +2,16 @@ package com.rotina.app.auth.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 import java.time.Instant;
 
 @Entity
-public class Permissions {
+public class Role {
 
     private String name;
+
     private String slug;
 
     @Column(name = "created_at")
@@ -18,6 +22,9 @@ public class Permissions {
 
     @Column(name = "deleted_at")
     private Instant deletedAt;
+
+    @OneToMany(mappedBy = "role")
+    private RolePermission rolesPermissions;
 
     public String getName() {
         return name;
@@ -58,5 +65,4 @@ public class Permissions {
     public void setDeletedAt(Instant deletedAt) {
         this.deletedAt = deletedAt;
     }
-
 }

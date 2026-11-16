@@ -1,6 +1,5 @@
 package com.rotina.app.auth.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
@@ -8,16 +7,14 @@ import com.rotina.app.user.entity.User;
 import com.rotina.app.shared.baseEntity.BaseEntity;
 
 @Entity
-public class Credentials extends BaseEntity {
+public class Credential extends BaseEntity {
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column()
     private String identifier;
 
-    @Column()
     private String provider;
 
     public void setIdentifier(String identifier) {

@@ -34,4 +34,11 @@ public class RefreshToken extends BaseEntity {
         this.status = status;
     }
 
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
 }
